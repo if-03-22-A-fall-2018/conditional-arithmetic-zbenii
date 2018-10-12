@@ -24,6 +24,29 @@ This assignment is based on a simple implementation task used during hiring inte
 
 6. Be careful to break down the task into separate functions (usually one function for each clearly separate task).
 
+## Sample Execution
+Take a look at these sample program runs. They show which results your program should calculate and how it should handle invalid input and overflows.
+
+```
+me@dev:~/if-03-22-A$ ./CondArith 
+Select Add (1) or Multiply (2): 3
+Select Add (1) or Multiply (2): 1
+Select a number in the range (1-100): 321
+Select a number in the range (1-100): 20
+The result is: 98
+
+me@dev:~/if-03-22-A$ ./CondArith 
+Select Add (1) or Multiply (2): 2
+Select a number in the range (1-100): 0
+Select a number in the range (1-100): 10
+The result is: 8100
+
+me@dev:~/if-03-22-A$ ./CondArith 
+Select Add (1) or Multiply (2): 2
+Select a number in the range (1-100): 50
+Overflow!
+```
+
 ## Hints
 - Take care to keep the work loop "Implement a little", "Test a little" to avoid the 100 lines of error mess.
 
@@ -38,4 +61,4 @@ All coding assignments will get checked. Most common reasons that your assignmen
 - Repeat using primitive data types, like integer and long
 - Repeat implementing functions
 - Repeat using conditions
-- Work with a loop
+- Work with a simple loop
