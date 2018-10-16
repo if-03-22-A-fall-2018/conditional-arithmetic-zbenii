@@ -13,11 +13,12 @@
 
 #include <stdio.h>
 #include "conditionalarithmetic.h"
+#include <float.h>
 
 int main(int argc, char const *argv[]) {
 
   int choice;
-  double num,result=1;
+  double ofcheck,num,result=1;
   int isValid=-1;
 do
 {
@@ -48,7 +49,7 @@ do
         result=result*i;
       }
     }
-
+    if(result==1){result=0;}
     printf("The result is: %lf\n",result);
     break;
     default:
@@ -75,4 +76,22 @@ void GetNumber(double* n)
     else{isValid=1;}
   }
 
+}
+
+void CheckOverFlow(double x,double y)
+{
+  y=DBL_MAX;
+
+  for(int i=num;i>=1;i--)
+  {
+    if((i%5==0)||(i%3==0))
+    {
+      if(i!=3)
+      {
+        y=y/i;
+      }
+    }
+  }
+
+  if(y>3)
 }
