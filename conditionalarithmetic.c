@@ -36,7 +36,7 @@ do
         result=result+i;
       }
     }
-    printf("The result is: %lf\n",result );
+    printf("The result is: %lf\n",result-1);
     break;
     case 2:
     isValid=1;
@@ -49,7 +49,7 @@ do
       }
     }
 
-    printf("The result is: %lf\n",result );
+    printf("The result is: %lf\n",result);
     break;
     default:
       isValid=-1;
