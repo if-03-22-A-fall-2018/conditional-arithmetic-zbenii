@@ -88,7 +88,7 @@ int CheckOverFlow(double x)
 {
   int y=DBL_MAX;
 
-  for(int i=x;i>=1;i--)
+  for(int i=x;i>3;i--)
   {
     if((i%5==0)||(i%3==0))
     {
