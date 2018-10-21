@@ -6,8 +6,10 @@
  * Author:			<Benjamin Besic>
  * ----------------------------------------------------------
  * Description:
- * <
- *  >
+ * < You choose between Add or Multiply and then you choose
+ *  a number. You go through every number between 1-chosen number
+ * If the number is a multiple of 3 or 5 you add/multiply it
+ * with each other.>
  * ----------------------------------------------------------
  */
 
@@ -18,7 +20,7 @@
 int main(int argc, char const *argv[]) {
 
   int choice;
-  double ofcheck,num,result=1;
+  double num,result=1;
   int isValid=-1;
 do
 {
@@ -50,7 +52,11 @@ do
       }
     }
     if(result==1){result=0;}
-    printf("The result is: %lf\n",result);
+    if(CheckOverFlow(num)==-1)
+    {
+      printf("The result is: %lf\n",result);
+    }
+    else{printf("OVERFLOW!\n");}
     break;
     default:
       isValid=-1;
@@ -78,20 +84,22 @@ void GetNumber(double* n)
 
 }
 
-void CheckOverFlow(double x,double y)
+int CheckOverFlow(double x)
 {
-  y=DBL_MAX;
-
-  for(int i=num;i>=1;i--)
+  int y=DBL_MAX;
+   
+  for(int i=x;i>=1;i--)
   {
     if((i%5==0)||(i%3==0))
     {
       if(i!=3)
       {
+
         y=y/i;
       }
     }
   }
 
-  if(y>3)
+  if(y>3.0){return -1; }
+  else{return 1;}
 }
