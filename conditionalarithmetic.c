@@ -87,14 +87,13 @@ void GetNumber(double* n)
 int CheckOverFlow(double x)
 {
   int y=DBL_MAX;
-   
+
   for(int i=x;i>=1;i--)
   {
     if((i%5==0)||(i%3==0))
     {
       if(i!=3)
       {
-
         y=y/i;
       }
     }
