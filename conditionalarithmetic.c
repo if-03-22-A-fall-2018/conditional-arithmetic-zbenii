@@ -16,11 +16,12 @@
 #include <stdio.h>
 #include "conditionalarithmetic.h"
 #include <float.h>
+#include <limits.h>
 
 int main(int argc, char const *argv[]) {
 
   int choice;
-  double num,result=1;
+  long num,result=1;
   int isValid=-1;
 do
 {
@@ -32,19 +33,19 @@ do
     case 1:
     isValid=1;
     GetNumber(&num);
-    for(int i=1;i<=num;i++)
+    for(long i=1;i<=num;i++)
     {
       if((i%5==0)||(i%3==0))
       {
         result=result+i;
       }
     }
-    printf("The result is: %lf\n",result-1);
+    printf("The result is: %ld\n",result-1);
     break;
     case 2:
     isValid=1;
     GetNumber(&num);
-    for(int i=1;i<=num;i++)
+    for(long i=1;i<=num;i++)
     {
       if((i%5==0)||(i%3==0))
       {
@@ -54,7 +55,7 @@ do
     if(result==1){result=0;}
     if(CheckOverFlow(num)==-1)
     {
-      printf("The result is: %lf\n",result);
+      printf("The result is: %ld\n",result);
     }
     else{printf("OVERFLOW!\n");}
     break;
@@ -67,14 +68,14 @@ do
   return 0;
 }
 
-void GetNumber(double* n)
+void GetNumber(long* n)
 {
   int isValid=-1;
 
   while(isValid==-1)
   {
     printf("Select a number in the range (1-100): ");
-    scanf("%lf",n);
+    scanf("%ld",n);
     if(*n>100||*n<1)
     {
         isValid=-1;
@@ -84,21 +85,18 @@ void GetNumber(double* n)
 
 }
 
-int CheckOverFlow(double x)
+int CheckOverFlow(long x)
 {
-  int y=DBL_MAX;
+  long y=LONG_MAX;
 
-  for(int i=x;i>3;i--)
+  for(long i=x;i>3;i--)
   {
     if((i%5==0)||(i%3==0))
     {
-      if(i!=3)
-      {
         y=y/i;
-      }
     }
   }
 
-  if(y>3.0){return -1; }
+  if(y>3){return -1; }
   else{return 1;}
 }

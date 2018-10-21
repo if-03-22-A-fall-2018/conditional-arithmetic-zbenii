@@ -1,2 +1,2 @@
-void GetNumber(double* num);
-int CheckOverFlow(double x);
+void GetNumber(long* n);
+int CheckOverFlow(long x);
